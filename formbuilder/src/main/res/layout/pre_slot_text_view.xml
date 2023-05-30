@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/margin_between_fields">
+
+    <TextView
+        android:id="@+id/tv_slot_text_view"
+        style="@style/FormTheme.TextView.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PlaceHolder"
+        android:layout_marginTop="@dimen/margin_between_fields"/>
+
+</LinearLayout>
