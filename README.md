@@ -1,13 +1,13 @@
-# form-builder
+# form-builder-pos
 ## You can use this library for making form dynamically like signup, profile or take input from users.
 
 #### Library size : 48Kb(lib) + 362.5Kb(retrofit2:converter-gson, okhttp3:logging-interceptor) = 410.5KB(Total)
 
 
 <p align="left">
-  <img src="https://raw.githubusercontent.com/appsfeature/form-builder/master/screenshots/sample1.png" alt="Preview 1" width="250" /> 
-  <img src="https://raw.githubusercontent.com/appsfeature/form-builder/master/screenshots/sample2.png" alt="Preview 2" width="250" /> 
-  <img src="https://raw.githubusercontent.com/appsfeature/form-builder/master/screenshots/sample3.png" alt="Preview 3" width="250" />
+  <img src="https://raw.githubusercontent.com/appsfeature/form-builder-pos/master/screenshots/sample1.png" alt="Preview 1" width="250" /> 
+  <img src="https://raw.githubusercontent.com/appsfeature/form-builder-pos/master/screenshots/sample2.png" alt="Preview 2" width="250" /> 
+  <img src="https://raw.githubusercontent.com/appsfeature/form-builder-pos/master/screenshots/sample3.png" alt="Preview 3" width="250" />
 </p>
 
   
@@ -35,10 +35,10 @@ allprojects {
 Add this to your project build.gradle
 
 #### Dependency
-[![](https://jitpack.io/v/appsfeature/form-builder.svg)](https://jitpack.io/#appsfeature/form-builder)
+[![](https://jitpack.io/v/appsfeature/form-builder-pos.svg)](https://jitpack.io/#appsfeature/form-builder-pos)
 ```gradle
 dependencies {
-    implementation 'com.github.appsfeature:form-builder:2.7'
+    implementation 'com.github.appsfeature:form-builder-pos:1.1'
 }
 ```
 Needed support libs
