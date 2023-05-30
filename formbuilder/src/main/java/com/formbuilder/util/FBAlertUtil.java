@@ -18,8 +18,8 @@ import com.formbuilder.model.entity.PopupEntity;
 
 public class FBAlertUtil {
 
-    public static void showSuccessDialog(Context activity, PopupEntity popup) {
-        showSuccessDialog(activity, popup, false);
+    public static void showSuccessDialog(Context context, PopupEntity popup) {
+        showSuccessDialog(context, popup, false);
     }
     public static void showSuccessDialog(Context context, PopupEntity popup, boolean isFinish) {
         if(context instanceof Activity) {

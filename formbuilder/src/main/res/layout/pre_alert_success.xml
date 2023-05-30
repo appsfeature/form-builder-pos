@@ -39,7 +39,7 @@
                     android:background="@drawable/pre_bg_circle_tick"
                     android:padding="20dp"
                     android:src="@drawable/pre_ic_action_tick"
-                    app:tint="@color/colorPrimaryDark" />
+                    app:tint="#99ffffff" />
             </RelativeLayout>
 
             <TextView
