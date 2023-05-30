@@ -4,6 +4,9 @@ import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
+import android.app.Activity;
+import android.content.Context;
+
 import androidx.annotation.IntDef;
 
 import com.formbuilder.model.FBNetworkModel;
@@ -26,7 +29,7 @@ public interface FormResponse {
     }
 
     interface FormSubmitListener {
-        void onFormSubmitted(Boolean status);
+        void onFormSubmitted(Context activity, Boolean status);
     }
 
     interface SyncSignupForm {

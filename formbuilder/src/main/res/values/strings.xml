@@ -7,6 +7,6 @@
     <string name="alert_button_text">Continue</string>
     <string name="error_message_form_validation_check">Invalid some form fields.</string>
     <string name="error_message_form_already_submitted_title">Thank You!</string>
-    <string name="error_message_form_already_submitted_description">Form already submitted.</string>
+    <string name="error_message_form_already_submitted_description">Campaign already submitted.</string>
 
 </resources>

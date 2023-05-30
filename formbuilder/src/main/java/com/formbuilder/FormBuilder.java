@@ -1,5 +1,6 @@
 package com.formbuilder;
 
+import android.app.Activity;
 import android.content.Context;
 
 import androidx.fragment.app.Fragment;
@@ -22,7 +23,7 @@ public interface FormBuilder {
 
     boolean isFormSubmitted(Context context, int formId);
 
-    void openDynamicFormActivity(Context context, int formId, String json, FormResponse.FormSubmitListener formSubmitListener);
+    void openDynamicFormActivity(Context context, String json, FormResponse.FormSubmitListener formSubmitListener);
 
     void openDynamicFormActivity(Context context, int formId, FormBuilderModel property, FormResponse.FormSubmitListener formSubmitListener);
 
@@ -30,7 +31,7 @@ public interface FormBuilder {
 
     void setFormSubmitListener(FormResponse.FormSubmitListener mFormSubmitListener);
 
-    void dispatchOnFormSubmit(Boolean status);
+    void dispatchOnFormSubmit(Context context, Boolean status);
 
     void syncSignupForm();
 

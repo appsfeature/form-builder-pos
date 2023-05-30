@@ -1,6 +1,7 @@
 package com.formbuilder.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -17,11 +18,12 @@ import com.formbuilder.model.entity.PopupEntity;
 
 public class FBAlertUtil {
 
-    public static void showSuccessDialog(Activity activity, PopupEntity popup) {
+    public static void showSuccessDialog(Context activity, PopupEntity popup) {
         showSuccessDialog(activity, popup, false);
     }
-    public static void showSuccessDialog(Activity activity, PopupEntity popup, boolean isFinish) {
-        if(activity != null) {
+    public static void showSuccessDialog(Context context, PopupEntity popup, boolean isFinish) {
+        if(context instanceof Activity) {
+            Activity activity = (Activity) context;
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             LayoutInflater inflater = activity.getLayoutInflater();
             View dialogView = inflater.inflate(R.layout.pre_alert_success, null);
@@ -47,7 +49,7 @@ public class FBAlertUtil {
                 @Override
                 public void onClick(View v) {
                     try {
-                        FormBuilder.getInstance().dispatchOnFormSubmit(true);
+                        FormBuilder.getInstance().dispatchOnFormSubmit(activity, true);
                         if(isFinish) {
                             activity.finish();
                         }
@@ -58,6 +60,8 @@ public class FBAlertUtil {
                 }
             });
             dialog.show();
+        }else {
+            FBUtility.showToastCentre(context, popup.getDescription());
         }
     }
 }

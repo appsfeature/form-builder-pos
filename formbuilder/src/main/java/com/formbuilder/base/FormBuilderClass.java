@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import com.formbuilder.FormBuilder;
-import com.formbuilder.R;
 import com.formbuilder.activity.FormBuilderActivity;
 import com.formbuilder.fragment.FormBuilderFragment;
 import com.formbuilder.interfaces.FormResponse;
@@ -56,10 +55,10 @@ public class FormBuilderClass implements FormBuilder {
     }
 
     @Override
-    public void openDynamicFormActivity(Context context, int formId, String json, FormResponse.FormSubmitListener formSubmitListener) {
+    public void openDynamicFormActivity(Context context, String json, FormResponse.FormSubmitListener formSubmitListener) {
         FormBuilderModel property = GsonParser.getGson().fromJson(json, FormBuilderModel.class);
         if (property != null) {
-            openDynamicFormActivity(context, formId, property, formSubmitListener);
+            openDynamicFormActivity(context, property.getFormId(), property, formSubmitListener);
         } else {
             FBUtility.showToastCentre(context, FBConstant.Error.INVALID_FORM_DATA);
         }
@@ -72,7 +71,7 @@ public class FormBuilderClass implements FormBuilder {
             context.startActivity(new Intent(context, FormBuilderActivity.class)
                     .putExtra(FBConstant.CATEGORY_PROPERTY, property));
         } else {
-            dispatchOnFormSubmit(false);
+            dispatchOnFormSubmit(context,false);
         }
     }
 
@@ -95,9 +94,9 @@ public class FormBuilderClass implements FormBuilder {
     }
 
     @Override
-    public void dispatchOnFormSubmit(Boolean status) {
+    public void dispatchOnFormSubmit(Context context, Boolean status) {
         if(mFormSubmitListener != null){
-            mFormSubmitListener.onFormSubmitted(status);
+            mFormSubmitListener.onFormSubmitted(context, status);
         }
     }
 

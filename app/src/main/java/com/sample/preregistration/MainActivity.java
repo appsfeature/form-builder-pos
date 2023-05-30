@@ -1,5 +1,7 @@
 package com.sample.preregistration;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -48,21 +50,22 @@ public class MainActivity extends AppCompatActivity {
     @MainThread
     public void onOpenDynamicForm(View view) {
         if(isOpenActivityByJson) {
-            FormBuilder.getInstance().openDynamicFormActivity(this, SAMPLE_FORM_ID, sampleJson, new FormResponse.FormSubmitListener() {
+            FormBuilder.getInstance().openDynamicFormActivity(this, sampleJson, new FormResponse.FormSubmitListener() {
                 @Override
-                public void onFormSubmitted(Boolean status) {
+                public void onFormSubmitted(Context activity, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(MainActivity.this, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
                     }
                 }
             });
         }else {
-            String property = GsonParser.toJsonAll(getCategoryProperty(), new TypeToken<FormBuilderModel>() {});
-            FormBuilder.getInstance().openDynamicFormActivity(this, SAMPLE_FORM_ID, getCategoryProperty(), new FormResponse.FormSubmitListener() {
+//            String property = GsonParser.toJsonAll(getCategoryProperty(), new TypeToken<FormBuilderModel>() {});
+            FormBuilderModel property = getCategoryProperty();
+            FormBuilder.getInstance().openDynamicFormActivity(this, property.getFormId(), property, new FormResponse.FormSubmitListener() {
                 @Override
-                public void onFormSubmitted(Boolean status) {
+                public void onFormSubmitted(Context activity, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(MainActivity.this, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
                     }
                 }
             });
