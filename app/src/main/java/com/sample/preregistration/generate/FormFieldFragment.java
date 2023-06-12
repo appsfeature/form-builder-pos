@@ -155,7 +155,7 @@ public class FormFieldFragment extends Fragment {
             }
             return GsonParser.toJsonAll(arrays, new TypeToken<String[]>(){});
         }
-        return value;
+        return null;
     }
 
     private String getValidFormData(String value) {
@@ -167,7 +167,7 @@ public class FormFieldFragment extends Fragment {
             }
             return GsonParser.toJsonAll(mList, new TypeToken<List<MasterEntity>>(){});
         }
-        return value;
+        return null;
     }
 
 
