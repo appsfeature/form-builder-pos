@@ -20,7 +20,7 @@ public class DynamicInputModel implements Serializable {
     private String inputType = FieldInputType.text;
     @Expose
     @SerializedName(value="fieldType")
-    private int fieldType = FieldType.EDIT_TEXT;
+    private String fieldType = FieldType.EDIT_TEXT;
     @Expose
     @SerializedName(value="validation")
     private String validation = ValidationCheck.NOT_REQUIRED;
@@ -59,11 +59,11 @@ public class DynamicInputModel implements Serializable {
         this.inputType = inputType;
     }
 
-    public int getFieldType() {
+    public String getFieldType() {
         return fieldType;
     }
 
-    public void setFieldType(@FieldType int fieldType) {
+    public void setFieldType(@FieldType String fieldType) {
         this.fieldType = fieldType;
     }
 

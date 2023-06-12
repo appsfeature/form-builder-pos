@@ -14,11 +14,11 @@ import java.util.Map;
 public class FormBuilderModel implements Serializable, Cloneable {
 
     @Expose
-    @SerializedName(value="formId", alternate={"id", "campId"})
+    @SerializedName(value="campId", alternate={"id", "formId"})
     private int formId;
 
     @Expose
-    @SerializedName(value="formName", alternate={"form_name", "campName"})
+    @SerializedName(value="campName", alternate={"form_name", "formName"})
     private String formName;
 
     @Expose
@@ -30,7 +30,7 @@ public class FormBuilderModel implements Serializable, Cloneable {
     private String subTitle;
 
     @Expose
-    @SerializedName(value="buttonText")
+    @SerializedName(value="formButtonText")
     private String buttonText = FBConstant.DEFAULT_BUTTON_TEXT;
 
     @Expose

@@ -18,6 +18,11 @@ public class MasterEntity implements Serializable {
     public MasterEntity() {
 
     }
+
+    public MasterEntity(String title) {
+        this.title = title;
+    }
+
     public MasterEntity(Integer id, String title) {
         this.id = id;
         this.title = title;

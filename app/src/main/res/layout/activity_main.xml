@@ -21,6 +21,12 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Generate Form Json"
+            android:onClick="onGenerateForm" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Clear Preferences"
             android:onClick="onClearPreferences" />
     </LinearLayout>

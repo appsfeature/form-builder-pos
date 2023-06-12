@@ -10,6 +10,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
@@ -167,5 +168,16 @@ public class FBUtility {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static int parseInt(String value) {
+        if(!TextUtils.isEmpty(value)){
+            try {
+                return Integer.parseInt(value);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return 0;
     }
 }

@@ -1,6 +1,5 @@
 package com.formbuilder.adapter.holder;
 
-import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RadioButton;
@@ -17,7 +16,6 @@ import com.formbuilder.model.entity.MasterEntity;
 import com.formbuilder.util.GsonParser;
 import com.google.gson.reflect.TypeToken;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,7 +40,7 @@ public class RadioViewHolder extends RecyclerView.ViewHolder {
         if (tvInputHint != null) {
             tvInputHint.setText(item.getFieldName());
         }
-        List<String> radioList = getRadioList(item.getFieldData());
+        List<MasterEntity> radioList = getRadioList(item.getFieldData());
         if(radioList != null) {
             for (int i = 0; i < radioList.size(); i++) {
                 RadioButton button = new RadioButton(mAdapter.context);
@@ -50,7 +48,7 @@ public class RadioViewHolder extends RecyclerView.ViewHolder {
                 button.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         mAdapter.context.getResources().getDimension(R.dimen.form_builder_text_size));
                 button.setTextColor(ContextCompat.getColor(mAdapter.context, R.color.form_builder_text_color));
-                button.setText(radioList.get(i));
+                button.setText(radioList.get(i).getTitle());
                 rgGroup.addView(button);
             }
             rgGroup.setVisibility(View.VISIBLE);
@@ -68,10 +66,10 @@ public class RadioViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    public List<String> getRadioList(String fieldData) {
-        List<String> fieldList = null;
+    public List<MasterEntity> getRadioList(String fieldData) {
+        List<MasterEntity> fieldList = null;
         if(fieldData != null) {
-            fieldList = GsonParser.fromJson(fieldData, new TypeToken<List<String>>() {
+            fieldList = GsonParser.fromJson(fieldData, new TypeToken<List<MasterEntity>>() {
             });
         }
         return fieldList;

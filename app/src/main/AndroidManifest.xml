@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:name=".AppApplication"
         android:theme="@style/FormTheme.MaterialComponents.ActionBar">
+
         <activity android:name=".MainActivity"
+            android:configChanges="orientation|screenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        <meta-data-->
+        <activity android:name=".generate.FormGeneratorActivity" />
+        <!--        <meta-data-->
 <!--            android:name="com.google.android.geo.API_KEY"-->
 <!--            android:value="${MAPS_API_KEY}" />-->
     </application>

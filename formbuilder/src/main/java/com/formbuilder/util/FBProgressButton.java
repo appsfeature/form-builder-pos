@@ -179,6 +179,7 @@ public class FBProgressButton {
         Runnable runnableRevert = new Runnable() {
             @Override
             public void run() {
+                btnAction.setEnabled(true);
                 listener.onAnimationCompleted();
             }
         };
@@ -191,6 +192,7 @@ public class FBProgressButton {
     }
 
     public void revertProgress(String buttonText) {
+        btnAction.setEnabled(true);
         if (!TextUtils.isEmpty(buttonText)) {
             setText(buttonText);
         }
@@ -198,10 +200,12 @@ public class FBProgressButton {
     }
 
     public void revertSuccessProgress() {
+        btnAction.setEnabled(true);
         revertSuccessProgress(false);
     }
 
     public void revertSuccessProgress(Boolean btnVisibility) {
+        btnAction.setEnabled(true);
         hideProgressBar();
         if (btnVisibility) {
             startShowButtonAction();
@@ -309,6 +313,7 @@ public class FBProgressButton {
     private void startHideButtonAction(final Listener listener) {
 
         if (btnAction != null) {
+            btnAction.setEnabled(false);
             int startPoint, endPoint;
             startPoint = mOriginalWidth;
             endPoint = mOriginalHeight;

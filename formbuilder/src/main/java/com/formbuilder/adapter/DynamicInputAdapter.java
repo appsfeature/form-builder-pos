@@ -39,17 +39,17 @@ public class DynamicInputAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        if (i == FieldType.TEXT_VIEW) {
+        if (getFieldType(i).equalsIgnoreCase(FieldType.TEXT_VIEW)) {
             return new TextViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_text_view, viewGroup, false));
-        } else if (i == FieldType.SPINNER) {
+        } else if (getFieldType(i).equalsIgnoreCase(FieldType.SPINNER)) {
             return new SpinnerViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_spinner, viewGroup, false));
-        } else if (i == FieldType.RADIO_BUTTON) {
+        } else if (getFieldType(i).equalsIgnoreCase(FieldType.RADIO_BUTTON)) {
             return new RadioViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_radio_button, viewGroup, false));
-        } else if (i == FieldType.CHECK_BOX) {
+        } else if (getFieldType(i).equalsIgnoreCase(FieldType.CHECK_BOX)) {
             return new CheckBoxViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_check_box, viewGroup, false));
-        } else if (i == FieldType.DATE_PICKER) {
+        } else if (getFieldType(i).equalsIgnoreCase(FieldType.DATE_PICKER)) {
             return new DatePickerViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_date_picker, viewGroup, false));
-        } else if (i == FieldType.EDIT_TEXT) {
+        } else if (getFieldType(i).equalsIgnoreCase(FieldType.EDIT_TEXT)) {
             return new EditTextViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_edit_text, viewGroup, false));
         } else {
             return new EmptyViewHolder(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pre_slot_empty_view, viewGroup, false));
@@ -84,9 +84,14 @@ public class DynamicInputAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
+    private String getFieldType(int i) {
+        return mList.get(i).getFieldType();
+    }
+
     @Override
     public int getItemViewType(int position) {
-        return mList == null ? 0 : mList.get(position).getFieldType();
+//        return mList == null ? 0 : mList.get(position).getFieldType();
+        return position;
     }
 
     @Override
