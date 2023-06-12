@@ -248,11 +248,11 @@ public class FormGeneratorActivity extends AppCompatActivity implements AppCallb
 
     private FormBuilderModel createFormModel() {
         mProperty.setFormId(FBUtility.parseInt(et_form_id.getText().toString()));
-        mProperty.setFormName(et_form_name.getText().toString());
-        mProperty.setTitle(et_form_title.getText().toString());
-        mProperty.setSubTitle(et_form_sub_title.getText().toString());
+        mProperty.setFormName(et_form_name.getText().toString().trim());
+        mProperty.setTitle(et_form_title.getText().toString().trim());
+        mProperty.setSubTitle(et_form_sub_title.getText().toString().trim());
         if(!TextUtils.isEmpty(et_form_button.getText().toString())) {
-            mProperty.setButtonText(et_form_button.getText().toString());
+            mProperty.setButtonText(et_form_button.getText().toString().trim());
         }
         mProperty.setPopup(getPopup());
         mProperty.setInputList(mList);

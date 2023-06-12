@@ -128,8 +128,8 @@ public class FormFieldFragment extends Fragment {
             (view.findViewById(R.id.btn_done)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    finalResult.setFieldName(et_field_name.getText().toString());
-                    finalResult.setParamKey(et_form_param.getText().toString());
+                    finalResult.setFieldName(et_field_name.getText().toString().trim());
+                    finalResult.setParamKey(et_form_param.getText().toString().trim());
                     finalResult.setFieldData(getValidFormData(et_form_field_data.getText().toString()));
                     finalResult.setFieldSuggestions(getValidSuggestions(et_form_suggestions.getText().toString()));
                     finalResult.setMaxLength(FBUtility.parseInt(et_form_max_length.getText().toString()));
