@@ -1,6 +1,5 @@
 package com.sample.preregistration;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,10 +18,7 @@ import com.formbuilder.model.FormBuilderModel;
 import com.formbuilder.model.entity.PopupEntity;
 import com.formbuilder.util.FBAlertUtil;
 import com.formbuilder.util.FBPreferences;
-import com.formbuilder.util.FBUtility;
-import com.formbuilder.util.GsonParser;
-import com.google.gson.reflect.TypeToken;
-import com.sample.preregistration.generate.FormGeneratorActivity;
+import com.sample.preregistration.generate.FormListActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -183,6 +179,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onGenerateForm(View view) {
-        startActivity(new Intent(this, FormGeneratorActivity.class));
+        startActivity(new Intent(this, FormListActivity.class));
     }
 }

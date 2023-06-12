@@ -11,6 +11,7 @@ public class FBPreferences {
     public static final String IS_FORM_SUBMITTED = "fb_is_form_submitted";
     public static final String APP_VERSION_CODE = "fb_app_version_code";
     public static final String ADVERTISE_VERSION_CODE = "fb_adv_version_code";
+    private static final String RECENT_FEATURE_DATA = "recent_feature_data";
 
     private static SharedPreferences sharedPreferences;
 
@@ -136,5 +137,13 @@ public class FBPreferences {
 
     public static int getAdvertiseVersionCode(Context context) {
         return getInt(context, ADVERTISE_VERSION_CODE, 0);
+    }
+
+    public static String getRecentFeatureData(Context context, String key) {
+        return getString(context, RECENT_FEATURE_DATA + key, "");
+    }
+
+    public static void setRecentFeatureData(Context context, String key, String value) {
+        setString(context, RECENT_FEATURE_DATA + key, value);
     }
 }

@@ -15,19 +15,27 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open Dynamic Form"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:text="Create Campaign"
+            android:onClick="onGenerateForm" />
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Sample Campaign"
+            android:textAllCaps="false"
+            android:layout_marginTop="100dp"
             android:onClick="onOpenDynamicForm" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generate Form Json"
-            android:onClick="onGenerateForm" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:text="Clear Preferences"
+            android:textAllCaps="false"
+            android:layout_marginTop="16dp"
             android:onClick="onClearPreferences" />
     </LinearLayout>
 

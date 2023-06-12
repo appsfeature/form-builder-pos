@@ -25,6 +25,7 @@ import com.google.gson.reflect.TypeToken;
 import com.sample.preregistration.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
