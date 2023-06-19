@@ -15,6 +15,7 @@ import com.formbuilder.interfaces.FormResponse;
 import com.formbuilder.model.FormBuilderModel;
 import com.formbuilder.model.entity.PopupEntity;
 import com.formbuilder.util.FBAlertUtil;
+import com.formbuilder.util.FBPreferences;
 import com.formbuilder.util.GsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.sample.preregistration.R;
@@ -69,6 +70,7 @@ public class FormListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public void onClick(View v) {
             if (getAdapterPosition() >= 0 && getAdapterPosition() < mList.size()) {
                 if (v.getId() == R.id.iv_preview) {
+                    FBPreferences.setFormSubmitted(v.getContext(), mList.get(getAdapterPosition()).getFormId(), false);
                     String sampleJson = GsonParser.toJsonAll(mList.get(getAdapterPosition()), new TypeToken<FormBuilderModel>(){});
                     FormBuilder.getInstance().openDynamicFormActivity(v.getContext(), sampleJson, new FormResponse.FormSubmitListener() {
                         @Override

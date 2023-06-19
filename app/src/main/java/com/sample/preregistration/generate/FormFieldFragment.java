@@ -87,6 +87,10 @@ public class FormFieldFragment extends Fragment {
                 et_form_param.setText(item.getParamKey());
                 et_form_max_length.setText(item.getMaxLength() + "");
 
+
+                et_form_field_data.setText(getValidFormDataValue(item.getFieldData()));
+                et_form_suggestions.setText(getValidSuggestionsValue(item.getFieldSuggestions()));
+
                 mFieldTypePos = getListPosition(mFieldTypeList, item.getFieldType());
                 mItemTypePos = getListPosition(mInputTypeList, item.getInputType());
                 mValidationPos = getListPosition(mValidationList, item.getValidation());
@@ -98,7 +102,6 @@ public class FormFieldFragment extends Fragment {
                     if(response.equalsIgnoreCase(FieldType.SPINNER) || response.equalsIgnoreCase(FieldType.RADIO_BUTTON)){
                         il_form_field_data.setVisibility(View.VISIBLE);
                     }else {
-                        et_form_field_data.setText("");
                         il_form_field_data.setVisibility(View.GONE);
                     }
                     if(response.equalsIgnoreCase(FieldType.EDIT_TEXT)){
@@ -159,6 +162,15 @@ public class FormFieldFragment extends Fragment {
         return null;
     }
 
+    private String getValidSuggestionsValue(String value) {
+        String[] array = GsonParser.fromJsonAll(value, new TypeToken<String[]>() {
+        });
+        if(array != null && array.length > 0){
+            return TextUtils.join(",", array);
+        }
+        return value;
+    }
+
     private String getValidFormData(String value) {
         List<MasterEntity> mList = new ArrayList<>();
         if(!TextUtils.isEmpty(value)){
@@ -168,7 +180,20 @@ public class FormFieldFragment extends Fragment {
             }
             return GsonParser.toJsonAll(mList, new TypeToken<List<MasterEntity>>(){});
         }
-        return null;
+        return value;
+    }
+
+    private String getValidFormDataValue(String value) {
+        List<MasterEntity> mList = GsonParser.fromJsonAll(value, new TypeToken<List<MasterEntity>>() {
+        });
+        if(mList != null && mList.size() > 0){
+            String[] array = new String[mList.size()];
+            for (int i = 0; i < mList.size(); i++) {
+                array[i] = mList.get(i).getTitle();
+            }
+            return TextUtils.join(",", array);
+        }
+        return value;
     }
 
 
