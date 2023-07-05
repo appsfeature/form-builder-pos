@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFormSubmitted(Context activity, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)), false, true);
                     }
                 }
             });
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onFormSubmitted(Context activity, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)));
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)), false, true);
                     }
                 }
             });

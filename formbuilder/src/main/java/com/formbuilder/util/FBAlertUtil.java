@@ -3,6 +3,7 @@ package com.formbuilder.util;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,11 @@ public class FBAlertUtil {
         showSuccessDialog(context, popup, false);
     }
     public static void showSuccessDialog(Context context, PopupEntity popup, boolean isFinish) {
+        showSuccessDialog(context, popup, isFinish, false);
+    }
+    public static void showSuccessDialog(Context context, PopupEntity popup, boolean isFinish, boolean isAutoDismiss) {
         if(context instanceof Activity) {
+            Handler handler = new Handler();
             Activity activity = (Activity) context;
             AlertDialog.Builder builder = new AlertDialog.Builder(activity);
             LayoutInflater inflater = activity.getLayoutInflater();
@@ -54,12 +59,23 @@ public class FBAlertUtil {
                             activity.finish();
                         }
                         dialog.dismiss();
+                        handler.removeCallbacksAndMessages(null);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             });
             dialog.show();
+            if(isAutoDismiss){
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (btnAlert != null) {
+                            btnAlert.performClick();
+                        }
+                    }
+                }, 5000);
+            }
         }else {
             FBUtility.showToastCentre(context, popup.getDescription());
         }
