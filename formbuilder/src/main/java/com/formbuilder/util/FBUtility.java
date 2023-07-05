@@ -155,6 +155,11 @@ public class FBUtility {
         }
     }
 
+    public static void hideKeyboard(Context context) {
+        if(context instanceof Activity){
+            hideKeyboard(((Activity) context));
+        }
+    }
     public static void hideKeyboard(Activity activity) {
         try {
             if(activity != null) {

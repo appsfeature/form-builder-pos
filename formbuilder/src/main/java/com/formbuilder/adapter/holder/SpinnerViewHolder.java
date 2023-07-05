@@ -1,6 +1,7 @@
 package com.formbuilder.adapter.holder;
 
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -40,7 +41,15 @@ public class SpinnerViewHolder extends RecyclerView.ViewHolder {
         (view.findViewById(R.id.input_layout)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FBUtility.hideKeyboard(v.getContext());
                 spinnerInput.performClick();
+            }
+        });
+        spinnerInput.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                FBUtility.hideKeyboard(view.getContext());
+                return false;
             }
         });
     }

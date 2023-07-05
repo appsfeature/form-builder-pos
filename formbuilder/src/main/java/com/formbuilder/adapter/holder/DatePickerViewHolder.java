@@ -9,6 +9,7 @@ import com.formbuilder.R;
 import com.formbuilder.adapter.DynamicInputAdapter;
 import com.formbuilder.model.DynamicInputModel;
 import com.formbuilder.util.DatePickerDialog;
+import com.formbuilder.util.FBUtility;
 
 /**
  * Resource layout
@@ -38,6 +39,8 @@ public class DatePickerViewHolder extends RecyclerView.ViewHolder {
         inputLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FBUtility.hideKeyboard(v.getContext());
+
                 DatePickerDialog.newInstance(mAdapter.context, new DatePickerDialog.DateSelectListener() {
                     @Override
                     public void onSelectDateClick(int day, int month, int year, String ddMMMyy) {

@@ -13,6 +13,7 @@ import com.formbuilder.R;
 import com.formbuilder.adapter.DynamicInputAdapter;
 import com.formbuilder.model.DynamicInputModel;
 import com.formbuilder.model.entity.MasterEntity;
+import com.formbuilder.util.FBUtility;
 import com.formbuilder.util.GsonParser;
 import com.google.gson.reflect.TypeToken;
 
@@ -59,6 +60,7 @@ public class RadioViewHolder extends RecyclerView.ViewHolder {
         rgGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                FBUtility.hideKeyboard(group.getContext());
                 RadioButton radioButton = group.findViewById(checkedId);
                 item.setInputData(radioButton.getText().toString());
                 inputLayout.setBackgroundResource(R.drawable.pre_bg_shape_select_normal);

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.formbuilder.R;
 import com.formbuilder.adapter.DynamicInputAdapter;
 import com.formbuilder.model.DynamicInputModel;
+import com.formbuilder.util.FBUtility;
 import com.formbuilder.util.GsonParser;
 import com.google.gson.reflect.TypeToken;
 
@@ -37,6 +38,7 @@ public class CheckBoxViewHolder extends RecyclerView.ViewHolder {
         cbCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                FBUtility.hideKeyboard(buttonView.getContext());
                 item.setInputData(isChecked ? "1" : "0");
                 cbCheckBox.setTextColor(ContextCompat.getColor(buttonView.getContext(), R.color.form_builder_text_color));
             }
