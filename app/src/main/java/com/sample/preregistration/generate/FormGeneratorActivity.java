@@ -27,6 +27,7 @@ import com.formbuilder.util.FBUtility;
 import com.formbuilder.util.GsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.sample.preregistration.R;
+import com.sample.preregistration.model.ExportModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -228,7 +229,11 @@ public class FormGeneratorActivity extends AppCompatActivity implements AppCallb
         ListMaintainer.saveData(this, model, model.getFormId());
 
         if(isShare) {
-            String jsonData = GsonParser.toJsonAll(model, new TypeToken<FormBuilderModel>() {
+            String actionText = GsonParser.toJsonAll(model, new TypeToken<FormBuilderModel>() {
+            });
+            ExportModel shareModel = new ExportModel();
+            shareModel.setActionText(actionText);
+            String jsonData = GsonParser.toJsonAll(shareModel, new TypeToken<ExportModel>() {
             });
             shareText(this, jsonData);
         }else {
