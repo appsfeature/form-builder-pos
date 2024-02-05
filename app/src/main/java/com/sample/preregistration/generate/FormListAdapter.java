@@ -2,6 +2,7 @@ package com.sample.preregistration.generate;
 
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,9 +75,12 @@ public class FormListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     String sampleJson = GsonParser.toJsonAll(mList.get(getAdapterPosition()), new TypeToken<FormBuilderModel>(){});
                     FormBuilder.getInstance().openDynamicFormActivity(v.getContext(), sampleJson, new FormResponse.FormSubmitListener() {
                         @Override
-                        public void onFormSubmitted(Context activity, Boolean status) {
+                        public void onFormSubmitted(Context activity, String message, Boolean status) {
                             if(!status) {
-                                FBAlertUtil.showSuccessDialog(activity, new PopupEntity(v.getContext().getString(R.string.error_message_form_already_submitted_description)));
+                                if(TextUtils.isEmpty(message)){
+                                    message = v.getContext().getString(R.string.error_message_form_already_submitted_description);
+                                }
+                                FBAlertUtil.showSuccessDialog(activity, new PopupEntity(message));
                             }
                         }
                     });

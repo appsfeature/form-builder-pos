@@ -71,7 +71,11 @@ public class FormBuilderClass implements FormBuilder {
             context.startActivity(new Intent(context, FormBuilderActivity.class)
                     .putExtra(FBConstant.CATEGORY_PROPERTY, property));
         } else {
-            dispatchOnFormSubmit(context,false);
+            String message = null;
+            if(property != null && property.getPopup() != null){
+                message = property.getPopup().getDescriptionSecondary();
+            }
+            dispatchOnFormSubmit(context, message,false);
         }
     }
 
@@ -94,9 +98,9 @@ public class FormBuilderClass implements FormBuilder {
     }
 
     @Override
-    public void dispatchOnFormSubmit(Context context, Boolean status) {
+    public void dispatchOnFormSubmit(Context context, String message, Boolean status) {
         if(mFormSubmitListener != null){
-            mFormSubmitListener.onFormSubmitted(context, status);
+            mFormSubmitListener.onFormSubmitted(context, message, status);
         }
     }
 

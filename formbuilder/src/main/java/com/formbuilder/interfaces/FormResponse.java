@@ -29,7 +29,7 @@ public interface FormResponse {
     }
 
     interface FormSubmitListener {
-        void onFormSubmitted(Context activity, Boolean status);
+        void onFormSubmitted(Context activity, String message, Boolean status);
     }
 
     interface SyncSignupForm {

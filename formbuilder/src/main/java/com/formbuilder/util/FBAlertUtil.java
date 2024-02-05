@@ -49,12 +49,14 @@ public class FBAlertUtil {
             alertBackground.setBackgroundColor(Color.parseColor(FBUtility.getColorValue(activity, "20", R.color.colorPrimary)));
             final AlertDialog dialog = builder.create();
             dialog.setCancelable(false);
-            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            if (dialog.getWindow() != null) {
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            }
             btnAlert.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     try {
-                        FormBuilder.getInstance().dispatchOnFormSubmit(activity, true);
+                        FormBuilder.getInstance().dispatchOnFormSubmit(activity, tvDescription.getText().toString(), true);
                         if(isFinish) {
                             activity.finish();
                         }

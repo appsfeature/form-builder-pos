@@ -31,7 +31,7 @@ public interface FormBuilder {
 
     void setFormSubmitListener(FormResponse.FormSubmitListener mFormSubmitListener);
 
-    void dispatchOnFormSubmit(Context context, Boolean status);
+    void dispatchOnFormSubmit(Context context, String message, Boolean status);
 
     void syncSignupForm();
 

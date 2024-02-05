@@ -3,6 +3,7 @@ package com.sample.preregistration;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 
 import androidx.annotation.MainThread;
@@ -53,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
         if(isOpenActivityByJson) {
             FormBuilder.getInstance().openDynamicFormActivity(this, sampleJson, new FormResponse.FormSubmitListener() {
                 @Override
-                public void onFormSubmitted(Context activity, Boolean status) {
+                public void onFormSubmitted(Context activity, String message, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)), false, true);
+                        if(TextUtils.isEmpty(message)){
+                            message = getString(R.string.error_message_form_already_submitted_description);
+                        }
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(message), false, true);
                     }
                 }
             });
@@ -64,9 +68,12 @@ public class MainActivity extends AppCompatActivity {
             FormBuilderModel property = getCategoryProperty();
             FormBuilder.getInstance().openDynamicFormActivity(this, property.getFormId(), property, new FormResponse.FormSubmitListener() {
                 @Override
-                public void onFormSubmitted(Context activity, Boolean status) {
+                public void onFormSubmitted(Context activity, String message, Boolean status) {
                     if(!status) {
-                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(getString(R.string.error_message_form_already_submitted_description)), false, true);
+                        if(TextUtils.isEmpty(message)){
+                            message = getString(R.string.error_message_form_already_submitted_description);
+                        }
+                        FBAlertUtil.showSuccessDialog(activity, new PopupEntity(message), false, true);
                     }
                 }
             });
