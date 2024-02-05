@@ -55,11 +55,37 @@
                 app:boxCornerRadiusBottomStart="8dp"
                 app:boxCornerRadiusTopStart="8dp"
                 app:expandedHintEnabled="true"
-                android:hint="Description">
+                android:hint="Description Primary">
 
                 <!--this is the actual edit text which takes the input-->
                 <AutoCompleteTextView
                     android:id="@+id/et_description"
+                    style="@style/FormTheme.TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="55dp"
+                    android:padding="14dp"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/themeTextColor"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:expandedHintEnabled="true"
+                android:hint="Description Secondary">
+
+                <!--this is the actual edit text which takes the input-->
+                <AutoCompleteTextView
+                    android:id="@+id/et_description2"
                     style="@style/FormTheme.TextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

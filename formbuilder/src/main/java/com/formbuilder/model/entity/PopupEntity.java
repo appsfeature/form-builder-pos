@@ -13,6 +13,9 @@ public class PopupEntity implements Serializable {
     @SerializedName("description")
     @Expose
     public String description;
+    @SerializedName("descriptionSecondary")
+    @Expose
+    public String descriptionSecondary; // Show 2nd time
     @SerializedName("buttonText")
     @Expose
     public String buttonText;
@@ -53,6 +56,15 @@ public class PopupEntity implements Serializable {
 
     public PopupEntity setButtonText(String buttonText) {
         this.buttonText = buttonText;
+        return this;
+    }
+
+    public String getDescriptionSecondary() {
+        return descriptionSecondary;
+    }
+
+    public PopupEntity setDescriptionSecondary(String descriptionSecondary) {
+        this.descriptionSecondary = descriptionSecondary;
         return this;
     }
 }

@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         return new PopupEntity()
                 .setTitle("Thank You!")
                 .setDescription("You will get your updates soon")
+                .setDescriptionSecondary("Campaign already Submitted.")
                 .setButtonText("Continue");
     }
 
